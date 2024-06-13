@@ -27,10 +27,19 @@ notes.post('/', (req, res) =>{
   }
 });
 
-// DELETE to remove a post - BONUS ROUND!!!!
+// DELETE to remove a post - BONUS ROUND!!!! 
+// modeled after problem 16
 app.delete('/api/notes/:id', (req, res) => {
-  
-}
+  /// need to add code here
+  const {note_id } = req.params;
+
+  if(!note_id) {
+    return res.status(400).send('Note ID not found!');
+  }
+  console.log(`${req.method} request received to get a single note`);
+
+  const 
+})
 
 
 

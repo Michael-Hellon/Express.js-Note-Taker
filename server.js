@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const { clog } = require('./middleware/clog.js');
 const api = require('./routes/index.js');
 
 const PORT = process.env.port || 3001;
@@ -12,11 +11,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 
-// GET Route for notes page
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/notes.html'))
-);
-
 // GET Route for homepage
 // app.get('/', (req, res) =>
 app.get('*', (req, res) =>
@@ -26,6 +20,11 @@ app.get('*', (req, res) =>
 app.get('/api/notes', (req, res) => {
   res.sendFile(path.join(__dirname, './db', 'db.json'));
 });
+
+// GET Route for notes page
+app.get('/notes', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/notes.html'))
+);
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
