@@ -27,8 +27,10 @@ notes.post('/', (req, res) =>{
   }
 });
 
-// DELETE to remove a post
-notes.delete
+// DELETE to remove a post - BONUS ROUND!!!!
+app.delete('/api/notes/:id', (req, res) => {
+  
+}
 
 
 
