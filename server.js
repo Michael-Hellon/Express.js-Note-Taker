@@ -10,15 +10,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
+// GET Route for notes page
+app.get('/notes', (req, res) =>
+  res.sendFile(path.join(__dirname, '/public/notes.html'))
+);
+
 // get route for index page / landing page
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
-// GET Route for notes page
-app.get('/notes', (req, res) =>
-  res.sendFile(path.join(__dirname, '/public/notes.html'))
-);
+
 
 // should read the db.json file and return all saved notes as JSON.
 app.get('/api/notes', (req, res) => {
@@ -26,7 +28,7 @@ app.get('/api/notes', (req, res) => {
 });
 
 // receive a new note to save on the request body
-app.post('/api/notes', (req, res) =>{
+app.post('/api/notes', (req, res) => {
   let newNote = req.body;
   let noteList = JSON.parse(fs.readFileSync('/db/db.json'));
   let notesLength = (noteList.length).toString();

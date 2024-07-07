@@ -4,11 +4,11 @@ const { v4: uuidv4 } = require('uuid');
 
 // get routes for retrieving all notes
 notes.get('/', (req, res) => {
-    readFromFile('.db/db.json').then((data) => res.json(JSON.parse(data)));
+  readFromFile('.db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
 // POST Route for a new note
-notes.post('/api/notes', (req, res) =>{
+notes.post('/api/notes', (req, res) => {
   console.log(req.body);
 
   const { title, text } = req.body;
@@ -17,7 +17,7 @@ notes.post('/api/notes', (req, res) =>{
     const newNote = {
       title,
       text,
-      note_id: uuidv4(),
+      note_id: crypto(),
     };
 
     readAndAppend(newNote, './db/db.json');
