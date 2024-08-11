@@ -49,9 +49,16 @@ The deployed project can be found on Render at <https://express-js-note-taker-5a
 
 You can email me with any questions at <mwhellon@yahoo.com>
 
+Creating a new note
 ![screenshot](/public/assets/images/creating%20a%20note.png)
+
+New note posted
 ![screenshot](/public/assets/images/new%20note%20posted.png)
+
+Selecting note to delete
 ![screenshot](/public/assets/images/selecting%20note%20to%20delete.png)
+
+Selected note deleted
 ![screenshot](/public/assets/images/note_deleted.png)
 
 
