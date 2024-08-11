@@ -9,14 +9,14 @@
         "text": "Mow in the morning",
         "id": "4d08a706-cb12-42bd-9150-070e7e90865b"
     },
+        {
+        "title": "Work on deck",
+        "text": "Attach Rim board and final joist",
+        "note_id": "5bbd4a26-9ea0-4e12-9d1a-09b18876690f"
+    },
     {
         "title": "Vacuum",
         "text": "downstairs & bedrooms",
         "id": "a5c094e9-ea6d-4af8-aed8-054bf3bfccdf"
-    },
-    {
-        "title": "Groceries",
-        "text": "Afternoon",
-        "id": "d55c6c10-1161-4900-85a3-f33996c3cfad"
     }
 ]
