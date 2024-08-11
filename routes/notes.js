@@ -1,23 +1,26 @@
 const notes = require('express').Router();
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
+const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
 const { v4: uuidv4 } = require('uuid');
 
-// get routes for retrieving all notes
+// get all notes
 notes.get('/', (req, res) => {
-  readFromFile('.db/db.json').then((data) => res.json(JSON.parse(data)));
+  readFromFile('./db/db.json').then((data) => {
+    res.json(JSON.parse(data));
+
+   });
 });
 
-// POST Route for a new note
-notes.post('/api/notes', (req, res) => {
+// POST the note(s)
+notes.post('/', (req, res) => {
   console.log(req.body);
 
   const { title, text } = req.body;
 
-  if (req.body) {
+  if (title && text) {
     const newNote = {
       title,
       text,
-      note_id: crypto(),
+      note_id: uuidv4(),
     };
 
     readAndAppend(newNote, './db/db.json');
@@ -26,5 +29,13 @@ notes.post('/api/notes', (req, res) => {
     res.error('Error in adding Note!')
   }
 });
+
+// delete a note
+notes.delete('/:id', async (req, res) => {
+  let notes = JSON.parse(await readFromFile('db/db.json'))
+  let remainingNotes = notes.filter(noteEntry => noteEntry.id !== req.params.id);
+  writeToFile('db/db.json', remainingNotes);
+  res.json(remainingNotes);
+})
 
 module.exports = notes;

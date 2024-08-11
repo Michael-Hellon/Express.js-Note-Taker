@@ -1,6 +1,22 @@
 [
     {
-        "title":"Test Title",
-        "text":"Test text"
+        "title": "Study",
+        "text": "Go over lesson material before class",
+        "id": "f0efc155-0abf-40a7-bfe4-1851ef11045f"
+    },
+    {
+        "title": "Yard Work",
+        "text": "Mow in the morning",
+        "id": "4d08a706-cb12-42bd-9150-070e7e90865b"
+    },
+    {
+        "title": "Vacuum",
+        "text": "downstairs & bedrooms",
+        "id": "a5c094e9-ea6d-4af8-aed8-054bf3bfccdf"
+    },
+    {
+        "title": "Groceries",
+        "text": "Afternoon",
+        "id": "d55c6c10-1161-4900-85a3-f33996c3cfad"
     }
 ]
